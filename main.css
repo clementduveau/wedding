@@ -1,0 +1,197 @@
+/* Pico variables */
+:root {
+    --pico-border-radius: 0px;
+    --pico-font-family-sans-serif: Helvetica, Arial, "Helvetica Neue", sans-serif, var(--pico-font-family-emoji);
+}
+
+a {
+    --pico-text-decoration: none;
+}
+
+a.secondary,
+a.contrast {
+    --pico-text-decoration: underline;
+}
+
+section {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+    --pico-background-color: rgb(244, 192, 175);
+    --pico-color: rgb(22, 62, 58);
+    --pico-h2-color: rgb(22, 62, 58);
+    --pico-h3-color: rgb(22, 62, 58);
+    --pico-h4-color: rgb(22, 62, 58);
+    --pico-primary-background: rgb(22, 62, 58);
+    --pico-primary-hover-background: rgb(24, 73, 68);
+    /* ... other Pico variables ... */
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    letter-spacing: 5px;
+    padding-top: 5rem;
+}
+
+.hero-medaillon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2)),
+        url('images/medaillon.webp');
+    background-size: cover;
+    background-position: center;
+    border: 1rem solid white;
+    border-radius: 50%;
+    width: min(600px, 80vw);
+    height: min(600px, 80vw);
+    padding: 2rem;
+    position: relative;
+}
+
+.hero span {
+    font-size: clamp(2rem, 10vw, 4rem);
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.hero span::after {
+    white-space: pre;
+    content: "\a";
+}
+
+.hero .date {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+/* Parallax section */
+.parallax-section {
+    position: relative;
+    height: 80vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.parallax-1 {
+    background-image: url('images/parallax-1.webp');
+}
+
+.parallax-2 {
+    background-image: url('images/parallax-2.webp');
+}
+
+/* Ceremony section */
+.white-background {
+    background: white;
+    margin-top: 0;
+}
+
+.container {
+    padding-bottom: 2rem;
+}
+
+h2 {
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Event */
+.event {
+    display: flex;
+    border-left: 2px solid var(--pico-color);
+    margin-left: 2rem;
+}
+
+.event:last-of-type {
+    border-left: none;
+}
+
+.event-icon {
+    border-radius: 50%;
+    border: 2px solid var(--pico-color);
+    background-color: white;
+    color: var(--pico-color);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: translateX(-50%);
+}
+
+.event-icon iconify-icon {
+    display: inline-flex;
+    font-size: 1.5rem;
+}
+
+/* logement */
+.logement {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* contacts */
+.contact {
+    margin-top: 1rem;
+}
+.contact h3 {
+    margin: 0;
+}
+.contact h4 {
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+/* RSVP */
+.rsvp {
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+}
+
+.rsvp button {
+    border: none;
+}
+
+.rsvp a {
+    color: white;
+    text-transform: uppercase;
+}
+
+header {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.icon {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
