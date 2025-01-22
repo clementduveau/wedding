@@ -1,8 +1,6 @@
-# Wedding Website Docker Container
+# Notre site de mariage
 
-A lightweight Nginx Docker container for hosting the wedding website static content.
-
-## Building and Running
+## Déploiement Docker
 
 Build the image:
 ```bash
@@ -14,23 +12,6 @@ Run the container:
 docker run -d -p 8080:80 --name wedding-site wedding-website
 ```
 
-The website will be available at `http://localhost:8080`
+## Déploiement GitHub Pages
 
-## Running Behind a Reverse Proxy
-
-To run behind a reverse proxy:
-
-```bash
-# Create a network (if not exists)
-docker network create web
-
-# Run the container on the network
-docker run -d --network web --name wedding-site wedding-website
-```
-
-## Container Management
-
-- Stop: `docker stop wedding-site`
-- Start: `docker start wedding-site`
-- Remove: `docker rm wedding-site`
-- Logs: `docker logs wedding-site`
+L'action se charge de tout. Le repo GitHub doit être configuré pour accepter GitHub pages.

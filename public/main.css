@@ -147,11 +147,24 @@ h2 {
     font-size: 1.5rem;
 }
 
+.event-content iconify-icon {
+    vertical-align: text-top;
+}
+
+.event-content {
+    margin-bottom: var(--pico-typography-spacing-vertical);
+}
+
+
 /* logement */
 .logement {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 1rem;
+}
+
+.logement a iconify-icon {
+    vertical-align: text-top;
 }
 
 /* contacts */
@@ -175,9 +188,6 @@ h2 {
 
 .rsvp button {
     border: none;
-}
-
-.rsvp a {
     color: white;
     text-transform: uppercase;
 }

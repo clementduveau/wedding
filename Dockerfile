@@ -1,9 +1,7 @@
 FROM nginx:alpine
 
 # Copy static website content
-COPY index.html /usr/share/nginx/html/
-COPY main.css /usr/share/nginx/html/
-COPY images/ /usr/share/nginx/html/images/
+COPY public/ /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
