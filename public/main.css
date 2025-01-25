@@ -8,11 +8,6 @@ a {
     --pico-text-decoration: none;
 }
 
-a.secondary,
-a.contrast {
-    --pico-text-decoration: underline;
-}
-
 section {
     margin-top: 0;
     margin-bottom: 0;
@@ -36,10 +31,10 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
     letter-spacing: 5px;
-    padding-top: 5rem;
+    padding-top: 120px;
 }
 
 .hero-medaillon {
@@ -47,16 +42,14 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
     background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2)),
         url('images/medaillon.webp');
     background-size: cover;
     background-position: center;
     border: 1rem solid white;
     border-radius: 50%;
-    width: min(600px, 80vw);
+    aspect-ratio: 1;
     height: min(600px, 80vw);
-    padding: 2rem;
     position: relative;
 }
 
@@ -76,12 +69,21 @@ section {
     content: "\a";
 }
 
+.hero .hero-text {
+    max-height
+}
+
+.hero p {
+    margin: 1rem 0 0 0;
+}
+
 .hero .date {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 1rem;
+    margin: 0;
     text-transform: uppercase;
 }
+
 
 /* Parallax section */
 .parallax-section {
