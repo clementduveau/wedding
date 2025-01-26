@@ -46,12 +46,7 @@ jobs:
           --keyframes
     
     - name: Minify CSS
-      run: |
-        cleancss \
-          --level 2 \
-          --format beautify \
-          --source-map \
-          -o public/main.css public/purged.css
+      run: cleancss -o public/main.css public/purged.css
     
     - name: Minify HTML
       run: |
