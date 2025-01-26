@@ -25,6 +25,51 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+
+    - name: Install optimizers
+      run: |
+        npm install -g purgecss
+        npm install -g clean-css-cli
+        npm install -g html-minifier
+
+    - name: Purge CSS
+      run: |
+        purgecss \
+          --css public/main.css \
+          --content public/index.html \
+          --output public/purged.css \
+          --safelist "grid" "container" "white-background" "parallax-section" "parallax-1" "parallax-2" \
+          --font-face \
+          --keyframes
+    
+    - name: Minify CSS
+      run: |
+        cleancss \
+          --level 2 \
+          --format beautify \
+          --source-map \
+          -o public/main.css public/purged.css
+    
+    - name: Minify HTML
+      run: |
+        html-minifier \
+          --input-file public/index.html \
+          --output public/index.html \
+          --collapse-whitespace \
+          --minify-css \
+          --minify-js \
+          --minify-urls \
+          --remove-comments \
+          --remove-empty-attributes \
+          --remove-redundant-attributes \
+          --remove-script-type-attributes \
+          --remove-style-link-type-attributes \
+          --use-short-doctype \
+          --conservative-collapse \
+          --preserve-line-breaks
       
     - name: Setup Pages
       uses: actions/configure-pages@v5
@@ -33,6 +78,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
           path: './public'
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
