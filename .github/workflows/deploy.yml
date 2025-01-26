@@ -51,8 +51,6 @@ jobs:
     - name: Minify HTML
       run: |
         html-minifier \
-          --input-file public/index.html \
-          --output public/index.html \
           --collapse-whitespace \
           --minify-css \
           --minify-js \
@@ -65,7 +63,9 @@ jobs:
           --use-short-doctype \
           --conservative-collapse \
           --preserve-line-breaks
-      
+          public/index.html \
+          --o public/index.html \
+        
     - name: Setup Pages
       uses: actions/configure-pages@v5
     
