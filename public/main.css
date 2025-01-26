@@ -98,6 +98,7 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    background-attachment: fixed !important;
 }
 
 .parallax-1 {
@@ -106,6 +107,38 @@ section {
 
 .parallax-2 {
     background-image: url('images/parallax-2.webp');
+}
+
+.parallax-3 {
+    background-image: url('images/parallax-3.webp');
+}
+
+.parallax-3 div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+.parallax-3 h2 {
+    font-size: clamp(2rem, 10vw, 4rem);
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,0.4);
+    padding: 1rem;
+    border-radius: 10px;
+}
+.parallax-3 p {
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 /* Ceremony section */
