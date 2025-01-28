@@ -33,7 +33,8 @@
             </div>
             <div class="hero-text">
                 <p>se marient</p>
-                <p class="date">Le 5 Juillet 2024</div>
+                <p class="date">Le 5 Juillet 2024</p>
+                <button id="vip-trigger" style="background: none; border: none; position: absolute; width: 100%; height: 100%; top: 0; left: 0; cursor: default;"></button>
             </div>
         </section>
     </div>
@@ -136,19 +137,48 @@
         <a href="https://forms.gle/BhgGmonVwbZR2kAGA" target="_blank"><button>Répondre</button></a>
     </footer>
     <script>
+        // Function to reveal VIP content
+        function revealVipContent() {
+            const vipElement = document.getElementById('vip');
+            if (vipElement && vipElement.hidden) {
+                vipElement.hidden = false;
+            }
+        }
+
+        // Keyboard detection for desktop
         let typedKeys = '';
         document.addEventListener('keydown', (event) => {
             typedKeys += event.key.toLowerCase();
             if (typedKeys.slice(-3) === 'vip') {
-                const vipElement = document.getElementById('vip');
-                if (vipElement) {
-                    vipElement.hidden = false;
-                }
+                revealVipContent();
             }
             // Only trim the string if it gets too long to prevent memory issues
             if (typedKeys.length > 50) {
                 typedKeys = typedKeys.slice(-50);
             }
+        });
+
+        // Triple tap detection for mobile
+        const vipTrigger = document.getElementById('vip-trigger');
+        let lastTap = 0;
+        let tapCount = 0;
+        
+        vipTrigger.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // Prevent default touch behavior
+            const currentTime = new Date().getTime();
+            const tapDelay = currentTime - lastTap;
+            
+            if (tapDelay < 500) { // Detect taps within 500ms
+                tapCount++;
+                if (tapCount === 3) {
+                    revealVipContent();
+                    tapCount = 0;
+                }
+            } else {
+                tapCount = 1;
+            }
+            
+            lastTap = currentTime;
         });
     </script>
 </body>
