@@ -44,7 +44,7 @@
         <div class="container">
             <iconify-icon class="icon" icon="mdi-draw"></iconify-icon>
             <h2>Programme du mariage</h2>
-            <!--<div class="event">
+            <div id="vip" class="event" hidden>
                 <div class="event-icon"><iconify-icon icon="mdi-cake-variant"></iconify-icon></div>
                 <div class="event-content">
                     <h3>Anniversaire de Clément</h3>
@@ -53,7 +53,7 @@
                     <p>Un bonheur n'arrive jamais seul. L'échauffement est important: pas de dress code (salopette de
                         chantier tolérée), et l'occasion de rencontrer d'autres invités !</p>
                 </div>
-            </div>-->
+            </div>
             <div class="event">
                 <div class="event-icon"><iconify-icon icon="mdi-ring"></iconify-icon></div>
                 <div class="event-content">
@@ -135,5 +135,21 @@
     <footer class="rsvp white-background">
         <a href="https://forms.gle/BhgGmonVwbZR2kAGA" target="_blank"><button>Répondre</button></a>
     </footer>
+    <script>
+        let typedKeys = '';
+        document.addEventListener('keydown', (event) => {
+            typedKeys += event.key.toLowerCase();
+            if (typedKeys.slice(-3) === 'vip') {
+                const vipElement = document.getElementById('vip');
+                if (vipElement) {
+                    vipElement.hidden = false;
+                }
+            }
+            // Only trim the string if it gets too long to prevent memory issues
+            if (typedKeys.length > 50) {
+                typedKeys = typedKeys.slice(-50);
+            }
+        });
+    </script>
 </body>
 </html>
