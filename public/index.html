@@ -182,13 +182,20 @@
         const vipTrigger = document.getElementById('vip-trigger');
         let lastTap = 0;
         let tapCount = 0;
+        let lastX = 0;
+        let lastY = 0;
         
         vipTrigger.addEventListener('touchstart', (event) => {
-            event.preventDefault(); // Prevent default touch behavior
+            const touch = event.touches[0];
             const currentTime = new Date().getTime();
             const tapDelay = currentTime - lastTap;
             
-            if (tapDelay < 500) { // Detect taps within 500ms
+            // Check if tap is close to the previous tap position (within 30px)
+            const touchX = touch.clientX;
+            const touchY = touch.clientY;
+            const distance = Math.sqrt(Math.pow(touchX - lastX, 2) + Math.pow(touchY - lastY, 2));
+            
+            if (tapDelay < 500 && (tapCount === 0 || distance < 30)) {
                 tapCount++;
                 if (tapCount === 3) {
                     revealVipContent();
@@ -199,7 +206,18 @@
             }
             
             lastTap = currentTime;
-        });
+            lastX = touchX;
+            lastY = touchY;
+        }, { passive: true }); // Mark as passive to improve scroll performance
+        
+        // Reset tap count when touch moves significantly (user is scrolling)
+        vipTrigger.addEventListener('touchmove', (event) => {
+            const touch = event.touches[0];
+            const distance = Math.sqrt(Math.pow(touch.clientX - lastX, 2) + Math.pow(touch.clientY - lastY, 2));
+            if (distance > 30) {
+                tapCount = 0;
+            }
+        }, { passive: true });
     </script>
 </body>
 </html>
