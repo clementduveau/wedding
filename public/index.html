@@ -136,12 +136,32 @@
     <footer class="rsvp white-background">
         <a href="https://forms.gle/BhgGmonVwbZR2kAGA" target="_blank"><button>Répondre</button></a>
     </footer>
+    <div id="vip-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        background-color: rgba(0, 0, 0, 0.9); color: white; padding: 20px 40px; border-radius: 10px; 
+        font-size: 24px; opacity: 0; transition: opacity 0.3s ease-in-out;">
+        Vous êtes un VIP !
+    </div>
     <script>
         // Function to reveal VIP content
         function revealVipContent() {
             const vipElement = document.getElementById('vip');
             if (vipElement && vipElement.hidden) {
                 vipElement.hidden = false;
+                
+                // Show and animate modal
+                const modal = document.getElementById('vip-modal');
+                modal.style.display = 'block';
+                // Trigger reflow to ensure transition works
+                modal.offsetHeight;
+                modal.style.opacity = '1';
+                
+                // Hide modal after delay
+                setTimeout(() => {
+                    modal.style.opacity = '0';
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300); // Match transition duration
+                }, 2000);
             }
         }
 
