@@ -244,3 +244,12 @@ header {
     font-size: 3rem;
     margin: 1rem 0;
 }
+
+span.vip {
+    text-transform: uppercase;
+    color: white;
+    background-color: var(--pico-color);
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-weight: 100;
+}
